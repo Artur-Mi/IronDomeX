@@ -1,7 +1,8 @@
 # IronDomeX
 
-Space Engineers 1 mod: missile silo with a visuals script. Part of the MisterWeapon modpack; planned to
-depend on the brain [../missil-misterplace](../missil-misterplace/CLAUDE.md). Workspace overview: [../CLAUDE.md](../CLAUDE.md).
+Space Engineers 1 mod: missile silo with a visuals script. Part of the MisterWeapon modpack; **requires** the
+brain [../missil-misterplace](../missil-misterplace/CLAUDE.md), whose Iron Dome logic (`MissileLauncher.cs`) drives the
+block. If you rename the block or the ammo subtype (`IronDomeX`, `IronDomeXMissile`), change it in the brain too. Workspace overview: [../CLAUDE.md](../CLAUDE.md).
 
 ## Docs
 - [README.md](README.md): quick start

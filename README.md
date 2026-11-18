@@ -1,8 +1,9 @@
 # IronDomeX
 
 Missile silo block ("Iron Dome X") for the MisterWeapon modpack (Space Engineers 1). Has a script of its own for
-visuals. Today it does not use the brain mod ([missil-misterplace](../missil-misterplace/README.md)); see
-[docs/contents.md](docs/contents.md).
+visuals. It **requires** the brain mod ([missil-misterplace](../missil-misterplace/README.md)), which runs the Iron
+Dome interception logic for the block; see [docs/contents.md](docs/contents.md). Load the matching brain (dev with dev,
+final with final) and set it as a Required item when publishing.
 
 | Target | Local folder in `%APPDATA%\SpaceEngineers\Mods` | Workshop ID |
 |---|---|---|

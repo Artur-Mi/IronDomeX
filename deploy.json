@@ -9,5 +9,11 @@
       "folder": "IronDomeX",
       "workshopId": null
     }
-  }
+  },
+  "requires": [
+    {
+      "repo": "missil-misterplace",
+      "note": "brain mod; its MissileLauncher script runs the interception logic for the IronDomeX block. Dev target needs its dev folder, final target its final folder"
+    }
+  ]
 }

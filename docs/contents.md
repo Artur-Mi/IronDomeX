@@ -4,7 +4,7 @@
 |---|---|---|
 | Block (`SmallMissileLauncher`) | `IronDomeX` | "Iron Dome X", missile silo; fires up (block front); ammo through the conveyor at the base; model `Models\IronDomeX\IronDomeX.mwm` |
 | Weapon definition | `IronDomeX_Weapon` | Used by the block |
-| Ammo, magazine, blueprint | `IronDomeXMissile` | "Míssil Iron Dome X": speed 5 to 200, explosion radius 4; model `IronDomeX_Missile.mwm` |
+| Ammo, magazine, blueprint | `IronDomeXMissile` | "Míssil Iron Dome X": same stats as the classic `IDMissile` (speed 100 to 300, acceleration 600, max trajectory 3000, radius 1, damage multiplier 4, mass 65); only the model `IronDomeX_Missile.mwm` differs |
 
 All definitions are in `Mod/Data/IronDomeX.sbc`. Models are in `Mod/Models/IronDomeX/` (silo, display missile
 `IronDomeX_Fake.mwm`, missile), textures in `Mod/Textures/`.
@@ -19,10 +19,22 @@ Visuals only; the vanilla launcher logic aims and fires.
 
 ## Relationship to the brain
 
-The script does not call the brain. Despite its name, this mod does not use the brain's Iron Dome interceptor logic
-(`LargeMissileLauncherIronDome`, ammo `IDMissile`): the brain looks ammo up by subtype name
-([../../missil-misterplace/docs/architecture.md](../../missil-misterplace/docs/architecture.md)), and `IronDomeXMissile`
-is not on its list. Phase 4 of [../../docs/modpack-plan.md](../../docs/modpack-plan.md) covers connecting them.
+**The mod requires the brain.** The block is registered in the brain's Iron Dome logic, so it works as an anti-missile
+launcher ([../../missil-misterplace/docs/architecture.md](../../missil-misterplace/docs/architecture.md)):
+
+- Block `IronDomeX` is in the `[MyEntityComponentDescriptor]` of the brain's `MissileLauncher.cs`, which every 10 frames
+  scans for enemy missiles within 3000 m (the `MissileTurret.missilesSubtypeIdWhitelist` ammo; aquatic missiles only once
+  surfaced) and fires the block with `ShootOnce`.
+- Ammo `IronDomeXMissile` is in `GuidedMissileSystem.InterceptorAmmoSubtypes`: it steers toward the chosen enemy missile
+  with the faster turn limit and never targets grids or players.
+- The ammo's stats stay here and match the classic `IDMissile` (see the table), so the 3000 m scan matches the 3000 m
+  trajectory. Block-level settings still differ from the classic launcher: 120 rpm, one shot per burst, and a different
+  blueprint cost (the classic one is 480 rpm, 19-shot burst). If the user wants those equal too, change `IronDomeX_Weapon`.
+- The visuals script does not call the brain and is unchanged: it reacts to the shots the brain's logic triggers.
+- Without the brain the block is a plain manual launcher. Nothing warns about it at runtime yet (LauncherX has such a
+  warning; this mod does not).
+- The Iron Dome turret/launcher of IronDomeClassic do **not** treat `IronDomeXMissile` as a target (it is not in the
+  whitelist).
 
 ## Not set up yet
 - No `metadata.mod`, no Workshop item (dev or final), no `BlockCategories.sbc` entry.
