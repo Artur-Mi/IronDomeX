@@ -5,14 +5,14 @@ visuals. It **requires** the brain mod ([missil-misterplace](../../missil-mister
 Dome interception logic for the block; see [docs/contents.md](docs/contents.md). Load the matching brain (dev with dev,
 final with final) and set it as a Required item when publishing.
 
-| Target | Local folder in `%APPDATA%\SpaceEngineers\Mods` | Workshop ID |
+| Target | Local folder in `<SE data>/Mods` (Windows: `%APPDATA%\SpaceEngineers\Mods`) | Workshop ID |
 |---|---|---|
 | dev   | `IronDomeX-dev` | none yet (created by the first dev Publish) |
 | final | `IronDomeX`     | none yet (not published) |
 
 ## Quick start
 ```powershell
-.\deploy.ps1 dev            # junction Mods\IronDomeX-dev -> Mod\ (live edits)
+.\deploy.ps1 dev            # link Mods/IronDomeX-dev -> Mod/ (live edits)
 .\deploy.ps1 final -DryRun  # preview a release
 .\deploy.ps1 final          # needs a clean git tree; copies a snapshot, tags release/<date>
 ```
