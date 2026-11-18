@@ -1,0 +1,13 @@
+{
+  "steamIdOwner": "76561198300566255",
+  "targets": {
+    "dev": {
+      "folder": "IronDomeX-dev",
+      "workshopId": null
+    },
+    "final": {
+      "folder": "IronDomeX",
+      "workshopId": null
+    }
+  }
+}
