@@ -30,6 +30,8 @@ launcher ([../../missil-misterplace/docs/architecture.md](../../missil-misterpla
 - The ammo's stats stay here and match the classic `IDMissile` (see the table), so the 3000 m scan matches the 3000 m
   trajectory. Block-level settings still differ from the classic launcher: 120 rpm, one shot per burst, and a different
   blueprint cost (the classic one is 480 rpm, 19-shot burst). If the user wants those equal too, change `IronDomeX_Weapon`.
+- A **Range** slider (100 to 3000 m, default 3000) is in the block's terminal; the brain adds it, so it exists only while
+  the brain is loaded. It sets how far the block scans for enemy missiles, and idle power scales with it.
 - The visuals script does not call the brain and is unchanged: it reacts to the shots the brain's logic triggers.
 - Without the brain the block is a plain manual launcher. Nothing warns about it at runtime yet (LauncherX has such a
   warning; this mod does not).
