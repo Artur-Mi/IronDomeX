@@ -20,7 +20,7 @@ Visuals only; the vanilla launcher logic aims and fires.
 ## Relationship to the brain
 
 **The mod requires the brain.** The block is registered in the brain's Iron Dome logic, so it works as an anti-missile
-launcher ([../../missil-misterplace/docs/architecture.md](../../missil-misterplace/docs/architecture.md)):
+launcher ([../../missil-misterplace/docs/architecture.md](../../../missil-misterplace/docs/architecture.md)):
 
 - Block `IronDomeX` is in the `[MyEntityComponentDescriptor]` of the brain's `MissileLauncher.cs`, which every 10 frames
   scans for enemy missiles within 3000 m (the `MissileTurret.missilesSubtypeIdWhitelist` ammo; aquatic missiles only once
