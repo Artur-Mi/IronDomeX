@@ -40,4 +40,4 @@ launcher ([../../missil-misterplace/docs/architecture.md](../../missil-misterpla
 
 ## Not set up yet
 - No `metadata.mod`, no Workshop item (dev or final), no `BlockCategories.sbc` entry.
-- `AntennaIronDome` and `M61IronDomeX` also sit in the game's Mods folder, but are not part of this workspace.
+- `AntennaIronDome` now has its own repo ([../../AntennaIronDome](../../AntennaIronDome/CLAUDE.md)); `M61IronDomeX` still sits only in the game's Mods folder.
